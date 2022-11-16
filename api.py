@@ -16,4 +16,4 @@ api.add_route('/api/predict', Resource)
 api.add_route('/api/greeting/{name}', Greeting)
 
 if __name__ == '__main__':
-    uvicorn.run("api:api", reload=True)
+    uvicorn.run("api:api",host="0.0.0.0", port=8000, reload=True)
