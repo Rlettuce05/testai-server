@@ -1,4 +1,5 @@
 import responder
+import uvicorn
 from src import Resource, Greeting
 
 api = responder.API(
@@ -15,4 +16,4 @@ api.add_route('/api/predict', Resource)
 api.add_route('/api/greeting/{name}', Greeting)
 
 if __name__ == '__main__':
-    api.run()
+    uvicorn.run("api:api", reload=True)

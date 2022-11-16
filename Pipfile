@@ -9,6 +9,7 @@ tensorflow = "*"
 keras = "*"
 pillow = "*"
 pipdeptree = "*"
+typesystem = "==0.2.5"
 
 [dev-packages]
 
