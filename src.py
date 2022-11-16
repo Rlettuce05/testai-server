@@ -5,7 +5,7 @@ import numpy as np
 import base64
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_DIR = os.path.join(BASE_DIR, "JupyterNotebook/saved_model")
+MODEL_DIR = os.path.join(BASE_DIR, "JupyterNotebook\saved_model")
 MODEL_FILE = os.path.join(MODEL_DIR, "model.h5")
 
 
