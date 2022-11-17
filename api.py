@@ -17,5 +17,4 @@ api.add_route('/api/greeting/{name}', Greeting)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5042))
-    print(port)
     api.run(address="0.0.0.0", port=port)
