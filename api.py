@@ -16,4 +16,5 @@ api.add_route('/api/predict', Resource)
 api.add_route('/api/greeting/{name}', Greeting)
 
 if __name__ == '__main__':
-    api.run(address="0.0.0.0")
+    port = int(os.environ.get("PORT", 5042))
+    api.run(address="0.0.0.0", port=port)
