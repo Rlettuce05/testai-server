@@ -70,7 +70,7 @@ protobuf==5.29.0rc3
 psutil==6.1.0
 pure_eval==0.2.3
 pyasn1==0.5
-pyasn1-modules==0.3.0rc1
+pyasn1-modules==0.3.0
 Pygments==2.18.0
 pyparsing==3.0.9
 python-dateutil==2.9.0.post0
