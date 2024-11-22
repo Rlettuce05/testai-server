@@ -7,9 +7,7 @@ from torchvision.models.detection import fasterrcnn_resnet50_fpn
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision import transforms
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_FILE = os.path.join("./net.prm")
-
 
 class Service:
     # 学習済みモデルの読み込み
