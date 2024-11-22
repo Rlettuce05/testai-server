@@ -1,9 +1,7 @@
-from torch import load, tensor
-import torch
+from torch import load
 from PIL import Image
 import PIL.ImageDraw as ImageDraw
 import os
-import numpy as np
 import base64
 from torchvision.models.detection import fasterrcnn_resnet50_fpn
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
@@ -17,9 +15,7 @@ class Service:
     # 学習済みモデルの読み込み
     model = fasterrcnn_resnet50_fpn(weights = "COCO_V1", weights_backbone='DEFAULT')
     model.roi_heads.box_predictor = FastRCNNPredictor(model.roi_heads.box_predictor.cls_score.in_features, 3)
-    model_weight = torch.load(MODEL_FILE)
-    model.load_state_dict(model_weight)
-    del model_weight
+    model.load_state_dict(load(MODEL_FILE))
     model.cpu()
     model.eval()
 
@@ -30,6 +26,7 @@ class Service:
         img_binary = base64.b64decode(data["img"][22:])
         with open("temp.png", 'bw') as f:
             f.write(img_binary)
+        del img_binary
         image = Image.open("temp.png").convert("RGB")
         trans = [
             transforms.ToTensor(),
