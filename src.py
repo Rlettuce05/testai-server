@@ -19,6 +19,7 @@ class Service:
     model.roi_heads.box_predictor = FastRCNNPredictor(model.roi_heads.box_predictor.cls_score.in_features, 3)
     model_weight = torch.load(MODEL_FILE)
     model.load_state_dict(model_weight)
+    del model_weight
     model.cpu()
     model.eval()
 
@@ -40,6 +41,7 @@ class Service:
         print(img)
         print(img.shape)
         outputs = Service.model([img])
+        del img
         outputs = [{k: v.to('cpu').detach().numpy() for k, v in t.items()} for t in outputs]
         outputs = outputs[0]
         print(outputs)
