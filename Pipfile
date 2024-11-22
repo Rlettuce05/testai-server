@@ -8,7 +8,7 @@ responder = "==2.0.7"
 pillow = "*"
 pipdeptree = "*"
 typesystem = "==0.2.5"
-torch = "*"
+torch = "==2.3.1"
 torchvision = "*"
 python-dotenv = "==1.0.1"
 
