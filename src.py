@@ -54,10 +54,15 @@ class Service:
                 labels += labels + l + " "
                 draw.rectangle([(box[0], box[1]), (box[2], box[3])], outline=color, width=3)
         image.save("output.png")
+        del draw
+        del image
 
         with open("output.png", "rb") as f:
             img_binary = f.read()
         result = base64.b64encode(img_binary).decode("utf-8")
+        del img_binary
+        os.remove("temp.png")
+        os.remove("output.png")
 
         return {"result": result, "label": labels}
 
