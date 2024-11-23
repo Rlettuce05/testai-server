@@ -18,7 +18,4 @@ web:
 mounts:
   "/var/log": "shared:files/log"
 
-relationships:
-  database: "db:mysql"
-
 disk: 1024
