@@ -6,6 +6,7 @@ import base64
 from torchvision.models.detection import fasterrcnn_resnet50_fpn
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision import transforms
+from gc import collect
 
 MODEL_FILE = os.path.join("./net.prm")
 
@@ -62,6 +63,7 @@ class Service:
         del img_binary
         os.remove("temp.png")
         os.remove("output.png")
+        collect()
 
         return {"result": result, "label": labels}
 
