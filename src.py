@@ -35,7 +35,7 @@ class Service:
         img = img.to("cpu")
         print(img)
         print(img.shape)
-        outputs = Service.model([img])
+        outputs = model([img])
         del img
         outputs = [{k: v.to('cpu').detach().numpy() for k, v in t.items()} for t in outputs]
         outputs = outputs[0]
