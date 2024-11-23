@@ -13,7 +13,6 @@ api = responder.API(
 )
 
 api.add_route('/api/predict', Resource)
-api.add_route('/api/greeting/{name}', Greeting)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5042))

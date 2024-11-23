@@ -73,8 +73,3 @@ class Resource:
             "status": True,
             "result": res
         }
-
-class Greeting:
-    @staticmethod
-    async def on_post(rep, resp, *, name):
-        resp.media = { "result" : f"Hello {name}" }
