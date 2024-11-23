@@ -1,6 +1,6 @@
 import responder
 import os
-from src import Resource, Greeting
+from src import Resource
 
 api = responder.API(
     cors=True,
