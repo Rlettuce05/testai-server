@@ -36,6 +36,7 @@ class Service:
         print(img)
         print(img.shape)
         outputs = model([img])
+        del model
         del img
         outputs = [{k: v.to('cpu').detach().numpy() for k, v in t.items()} for t in outputs]
         outputs = outputs[0]
