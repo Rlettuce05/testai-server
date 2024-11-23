@@ -1,5 +1,5 @@
 name: app
-type: "python:3.10.4" # 使用する Python のバージョン
+type: "python:3.11" # 使用する Python のバージョン
 build:
   flavor: python
 
