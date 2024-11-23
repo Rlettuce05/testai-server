@@ -11,14 +11,14 @@ MODEL_FILE = os.path.join("./net.prm")
 
 class Service:
     # 学習済みモデルの読み込み
+    model = fasterrcnn_resnet50_fpn(weights = "COCO_V1", weights_backbone='DEFAULT')
+    model.roi_heads.box_predictor = FastRCNNPredictor(model.roi_heads.box_predictor.cls_score.in_features, 3)
+    model.load_state_dict(load(MODEL_FILE))
+    model.cpu()
+    model.eval()
 
     @staticmethod
     def predict(data):
-        model = fasterrcnn_resnet50_fpn(weights = "COCO_V1", weights_backbone='DEFAULT')
-        model.roi_heads.box_predictor = FastRCNNPredictor(model.roi_heads.box_predictor.cls_score.in_features, 3)
-        model.load_state_dict(load(MODEL_FILE))
-        model.cpu()
-        model.eval()
         # fasterRCNNを使って信号機の予測を行い，画像を返す
         label_predict = ["background", "GREEN", "RED"]
         img_binary = base64.b64decode(data["img"][22:])
